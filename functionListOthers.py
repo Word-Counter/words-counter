@@ -37,12 +37,14 @@ def mostCommonWords(sentence: str):
             counter += 1
             pass
 
-    print("The first most common words is/are: " + ','.join(listWords0))
-    print("The second most common words is/are: " + ','.join(listWords1))
-    print("The third most common words is/are: " + ','.join(listWords2))
+    print("The first most common words is/are: " + ','.join(listWords0) + " with " + str(counterWords[listWords.index(listWords0[0])])+ " words.")
+    print("The second most common words is/are: " + ','.join(listWords1) + " with " + str(counterWords[listWords.index(listWords1[0])])+ " words.")
+    print("The third most common words is/are: " + ','.join(listWords2) + " with " + str(counterWords[listWords.index(listWords2[0])])+ " words.")
 
     
     
     
-    
+#so this does not have an issue
 mostCommonWords("Lists are a popular way for people to stay organized Perhaps you jot down grocery items or tasks you need to complete at work each day on a sticky note or your phone But, when you need to communicate lists in writing and speech you need to organize them in a manner to show importance and clarity to your audience")
+#but this has an issue because it is out of range
+#mostCommonWords("hi i")
