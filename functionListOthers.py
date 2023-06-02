@@ -16,7 +16,7 @@ def mostCommonWords(sentence: str):
     distinctCounter = set()
     for count in counterWords:
         distinctCounter.add(count)
-    distinctCounterSet = sorted(distinctCounter, reverse= True)
+    distinctCounterList = sorted(distinctCounter, reverse= True)
 
     listWords0 = []
     listWords1 = []
@@ -24,13 +24,13 @@ def mostCommonWords(sentence: str):
 
     counter = 0
     for count in counterWords:
-        if count == distinctCounterSet[0]:
+        if count == distinctCounterList[0]:
             listWords0.append(listWords[counter])
             counter += 1
-        elif count == distinctCounterSet[1] :
+        elif count == distinctCounterList[1] :
             listWords1.append(listWords[counter])
             counter += 1
-        elif count == distinctCounterSet[2] :
+        elif count == distinctCounterList[2] :
             listWords2.append(listWords[counter])
             counter += 1
         else:
