@@ -40,10 +40,6 @@ def speakingTime(sentance: str) -> str:
 
 
 def mostCommonWords(sentence: str):
-    #Note: this function works if the list is not out of range, so not fully working yet!!!
-    #It works for long text, but doesn't work for text like, "aa bb", since there is only top 2 instead of top 3
-
-
     #listing array of distinct words and its count
     oriListWords = sentence.split()
     listWords = []
@@ -67,24 +63,33 @@ def mostCommonWords(sentence: str):
     listWords1 = []
     listWords2 = []
 
-    counter = 0
-    for count in counterWords:
-        if count == distinctCounterList[0]:
-            listWords0.append(listWords[counter])
-            counter += 1
-        elif count == distinctCounterList[1] :
-            listWords1.append(listWords[counter])
-            counter += 1
-        elif count == distinctCounterList[2] :
-            listWords2.append(listWords[counter])
-            counter += 1
-        else:
-            counter += 1
-            pass
+    if len(distinctCounterList) < 3:
+        counter = 0
+        for count in counterWords:
+            if count == distinctCounterList[0]:
+                listWords0.append(listWords[counter])
+                counter += 1
+        
+        print("The most common words is/are: " + ','.join(listWords0) + " with " + str(counterWords[listWords.index(listWords0[0])])+ " words.")
+    else: 
+        counter = 0
+        for count in counterWords:
+            if count == distinctCounterList[0]:
+                listWords0.append(listWords[counter])
+                counter += 1
+            elif count == distinctCounterList[1] :
+                listWords1.append(listWords[counter])
+                counter += 1
+            elif count == distinctCounterList[2] :
+                listWords2.append(listWords[counter])
+                counter += 1
+            else:
+                counter += 1
+                pass
 
-    print("The first most common words is/are: " + ','.join(listWords0) + " with " + str(counterWords[listWords.index(listWords0[0])])+ " words.")
-    print("The second most common words is/are: " + ','.join(listWords1) + " with " + str(counterWords[listWords.index(listWords1[0])])+ " words.")
-    print("The third most common words is/are: " + ','.join(listWords2) + " with " + str(counterWords[listWords.index(listWords2[0])])+ " words.")\
+        print("The first most common words is/are: " + ','.join(listWords0) + " with " + str(counterWords[listWords.index(listWords0[0])])+ " words.")
+        print("The second most common words is/are: " + ','.join(listWords1) + " with " + str(counterWords[listWords.index(listWords1[0])])+ " words.")
+        print("The third most common words is/are: " + ','.join(listWords2) + " with " + str(counterWords[listWords.index(listWords2[0])])+ " words.")
 
 def wordRange(sentence :str, minNum :int, maxNum :int):
     listWords = sentence.split()
