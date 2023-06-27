@@ -38,6 +38,48 @@ def speakingTime(sentance: str) -> str:
     speakTime = round(wordsCounted / 135, 3)
     return speakTime
 
+def mostCommonWords(sentence: str):
+    #listing array of distinct words and its count
+    oriListWords = sentence.split()
+    listWords = []
+    counterWords = []
+    for word in oriListWords:
+        if word.lower() not in listWords:
+            listWords.append(word.lower())
+            counterWords.append(1)
+        else:
+            pos = listWords.index(word.lower())
+            counterWords[pos] += 1
+
+    #find unique numbers in counterWords and ordered it
+    #set in python: set elements are unique, and not ordered
+    distinctCounter = set()
+    for count in counterWords:
+        distinctCounter.add(count)
+    distinctCounterList = sorted(distinctCounter, reverse= True)
+
+    listWords0 = []
+    listWords1 = []
+    listWords2 = []
+
+    counter = 0
+    for count in counterWords:
+        if count == distinctCounterList[0]:
+            listWords0.append(listWords[counter])
+            counter += 1
+        elif count == distinctCounterList[1] :
+            listWords1.append(listWords[counter])
+            counter += 1
+        elif count == distinctCounterList[2] :
+            listWords2.append(listWords[counter])
+            counter += 1
+        else:
+            counter += 1
+            pass
+
+    print("The first most common words is/are: " + ','.join(listWords0) + " with " + str(counterWords[listWords.index(listWords0[0])])+ " words.")
+    print("The second most common words is/are: " + ','.join(listWords1) + " with " + str(counterWords[listWords.index(listWords1[0])])+ " words.")
+    print("The third most common words is/are: " + ','.join(listWords2) + " with " + str(counterWords[listWords.index(listWords2[0])])+ " words.")
 
 def mostCommonWords(sentence: str):
     #listing array of distinct words and its count
