@@ -11,6 +11,19 @@ window.geometry("600x500")
 def getParagraph():
     content = text_box.get("1.0", tk.END)
     output(content)
+
+def clear_button():
+    text_box.delete("1.0", tk.END)
+    result_words_countedLBL.config(text="")
+    result_vowel_countedLBL.config(text="")
+    result_character_countedLBL.config(text="")
+    result_sentence_countedLBL.config(text="")
+    result_readTime_lbl.config(text="")
+    result_speakTime_lbl.config(text="")
+    result_mostCommonWords.config(text="")
+
+
+
 def output(words):
     # print(functionList.wordsCounter(words))
     result_words_countedLBL.config(text=functionList.wordsCounter(words))
@@ -35,7 +48,7 @@ text_box.place(x=20,y=75)
 submit_button = ttk.Button(window, text="Submit", command=getParagraph)
 submit_button.place(x=100,y=440)
 
-clear_button = ttk.Button(window, text="Clear",)
+clear_button = ttk.Button(window, text="Clear",command=clear_button)
 clear_button.place(x=200,y=440)
 
 words_countedLBL = ttk.Label(window, text="words counted:")
