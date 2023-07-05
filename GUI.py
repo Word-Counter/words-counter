@@ -3,8 +3,9 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 import functionList
 
+window = ttk.Window(themename="cosmo")
 
-window = ttk.Window(themename="litera")
+
 
 window.geometry("600x500")
 
